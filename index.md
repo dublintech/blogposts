@@ -49,7 +49,8 @@ Key concepts:
 
 Read the article:
 
-./ai-sdlc-part-3-archunit-design-debt.md
+ 3[Part 3 - Indicating Your Design Debt to AI Tooling (ArchUnit Integration)](ai-sdlc-part-3-archunit-design-debt.md)
+
 
 ---
 
