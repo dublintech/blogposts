@@ -15,9 +15,18 @@ Most AI discussions focus on prompts, agents, and code generation. This series f
 
 ## Articles
 
-### Part 1
+### Part 1 - Compare & Contrast Arch Unit and AI Code Tooling steering .md files
 
-Coming Soon
+This article compares ArchUnit and LLM steering .md files — two approaches to encoding architectural principles — exploring their similarities, differentiators, and how to use them together.
+
+Key concepts:
+
+- ArchUnit vs .md steering files
+- Deterministic vs non-deterministic architecture governance
+- Agent-assisted feedback loops
+- Combining executable rules with contextual knowledge
+
+[Part 1 - Compare & Contrast ArchUnit and AI Code Tooling steering .md files](posts/aisdlc/ai-sdlc-part-1-archunit-vs-llm-md-files.md)
 
 ---
 
