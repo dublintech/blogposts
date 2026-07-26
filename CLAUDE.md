@@ -16,16 +16,17 @@ A collection of Markdown blog posts by Alex Staveley, published at `https://dubl
 - `Gemfile` — Ruby gems for local/CI build.
 - `.github/workflows/jekyll.yml` — GitHub Actions deploy workflow.
 
-## Jekyll & Theme
+## Adding a New Post — Checklist
 
-- **Theme**: `minimal-mistakes-jekyll` (gem, not remote_theme — required for Jekyll 4 compatibility).
-- **Permalink**: `pretty` — pages generate as `path/to/page/index.html`, not `path/to/page.html`. Links in Markdown must use trailing slashes, not `.md` or `.html` extensions.
-- **Wide layout**: All posts use `classes: wide` in frontmatter for a better desktop reading experience. New posts should include this.
-- **Deployment**: GitHub Actions (`.github/workflows/jekyll.yml`). The GitHub Pages source must be set to "GitHub Actions" in repo settings — the native GitHub Pages builder is too old (Jekyll 3) for this theme.
+Every new post needs all of the following or things will break silently:
 
-## Post Frontmatter
+1. **File location**: `posts/<series-slug>/your-post-slug.md`
+2. **Frontmatter** — must include all of these fields (see template below). Missing `classes: wide` will make the page look narrow on desktop. Missing `date` means no publish date shows.
+3. **Image paths**: use `../../../images/filename.jpg` (3 `../` — see Image Paths section).
+4. **Links to other posts**: use trailing slash, no `.md` or `.html` — e.g. `../other-post/` not `../other-post.md`.
+5. **Add to `index.md`**: one-line summary + link with trailing slash.
 
-All posts must include:
+### Post frontmatter template
 
 ```yaml
 ---
@@ -39,13 +40,26 @@ tags:
 ---
 ```
 
+**Gotcha**: `classes: wide` must be in each post's frontmatter. Setting it only in `_config.yml` defaults is not reliable — the theme's body class template does not consistently pick it up from defaults. Always include it explicitly.
+
+## Jekyll & Theme
+
+- **Theme**: `minimal-mistakes-jekyll` gem. Do NOT switch to `remote_theme: mmistakes/minimal-mistakes` — the latest Minimal Mistakes uses the `include_cached` Liquid tag (from `jekyll-include-cache` gem) which is not on GitHub Pages' native gem whitelist, causing a build failure.
+- **Permalink**: `pretty` — pages generate as `path/to/page/index.html`. Links in Markdown must use trailing slashes only — not `.md` or `.html` extensions. Using `.md` links in `index.md` will result in 404s.
+- **Deployment**: GitHub Actions (`.github/workflows/jekyll.yml`). The GitHub Pages source in repo Settings must be set to "GitHub Actions" — the native GitHub Pages builder uses Jekyll 3 which cannot build this theme.
+
 ## Image Paths
 
-Images are in the root `images/` directory. Posts are served 3 URL levels deep (`/posts/<series>/<post>/`), so image references must use `../../../images/filename.jpg` (three levels up). Using `../../images/` will break.
+Images live in the root `images/` directory. Posts are served 3 URL levels deep (`/blogposts/posts/<series>/<post>/`), so image `src` paths must go up 3 levels: `../../../images/filename.jpg`.
+
+**Gotcha**: `../../images/` (2 levels) was the correct depth before `permalink: pretty` was added. After `permalink: pretty`, pages moved into subdirectories adding an extra level. Using `../../images/` will silently serve a broken image with no build error.
 
 ## Navigation Links
 
-In `_data/navigation.yml`, URLs must NOT include the baseurl (`/blogposts`). Minimal Mistakes applies `relative_url` automatically, so use `/` not `/blogposts/` — the latter results in a double-baseurl bug.
+In `_data/navigation.yml`, URLs must NOT include the baseurl (`/blogposts`). Minimal Mistakes applies the `relative_url` filter automatically, so:
+
+- Use `url: /` for the home link ✓
+- Do NOT use `url: /blogposts/` — this results in `/blogposts/blogposts/` (double-baseurl bug) ✗
 
 ## Content Conventions
 
@@ -53,11 +67,12 @@ In `_data/navigation.yml`, URLs must NOT include the baseurl (`/blogposts`). Min
 - Java is used for all code examples; readers using other languages are directed to apply the underlying concepts with equivalent tooling.
 - The series maintains a deliberate distinction between **design debt** (structural/architectural compromise) and **technical debt** (lower-level issues like formatting or naming).
 - New blog series go under `posts/<series-slug>/` and should be listed on `index.md`.
-- Cross-article links use relative paths with trailing slashes (e.g. `../ai-sdlc-part-2-archunit-design-debt/`).
 
 ## Comments & Reactions
 
-Giscus is wired up for likes and comments on all posts, backed by GitHub Discussions (Announcements category, repo `dublintech/blogposts`). Enabled globally via `_config.yml` defaults.
+Giscus is wired up for likes and comments on all posts, backed by GitHub Discussions (Announcements category, repo `dublintech/blogposts`). Enabled globally via `_config.yml` defaults — new posts get comments automatically without any extra config.
+
+If Giscus ever needs to be set up again: (1) enable Discussions in repo Settings, (2) install the Giscus GitHub App at `https://github.com/apps/giscus`, (3) get the repo ID and category ID via the GitHub GraphQL API, then add to `_config.yml`.
 
 ## Understanding `@KnownApiDesignDebt`
 
