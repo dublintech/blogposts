@@ -1,1 +1,1 @@
-Using this to collate blog posts
+Using this Repo to collate blog posts
