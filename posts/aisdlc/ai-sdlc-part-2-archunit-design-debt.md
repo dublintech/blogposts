@@ -11,8 +11,6 @@ tags:
   - ai-coding-tool
 ---
 
-# Indicating Your Design Debt (AI Coding Tool in the SDLC — Part 2)
-
 <p align="center">
   <img src="../../../images/TechDebtRobotDude.jpg" alt="Tech Debt Robot Dude" />
 </p>

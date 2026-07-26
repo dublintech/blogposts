@@ -11,8 +11,6 @@ tags:
   - design-debt
 ---
 
-# AI in the SDLC Part 3 - Linking Design Debt to ArchUnit
-
 <p align="center">
   <img src="../../../images/Warrior.png" alt="Warrior" />
 </p>

@@ -11,8 +11,6 @@ tags:
   - ai-coding-tool
 ---
 
-# Compare & Contrast ArchUnit and AI Coding Tool steering .md files
-
 <p align="center">
   <img src="../../../images/summaryarchmd.png" alt="Summary: ArchUnit vs AI Coding Tool steering .md files" />
 </p>
