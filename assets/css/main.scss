@@ -1,0 +1,49 @@
+---
+# Only the main element can have a front matter comment
+---
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
+
+// Serif body font for a published-article feel
+.page__content p,
+.page__content li,
+.page__content blockquote,
+.page__content td {
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+}
+
+// Comfortable reading: font size, line height, and paragraph spacing
+.page__content {
+  font-size: 1.05em;
+  line-height: 1.8;
+
+  p {
+    margin-bottom: 1.4em;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+    line-height: 1.8;
+  }
+
+  h2, h3, h4, h5 {
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+    line-height: 1.3;
+  }
+}
+
+// Muted red link colour — similar to martinfowler.com
+a {
+  color: #8B2222;
+
+  &:visited {
+    color: #7A1C1C;
+  }
+
+  &:hover {
+    color: #5C1515;
+    text-decoration: underline;
+  }
+}
