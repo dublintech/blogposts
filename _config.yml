@@ -9,6 +9,7 @@ minimal_mistakes_skin: "default"
 
 author:
   name: "Alex Staveley"
+  avatar: "/images/me.jpg"
   bio: "Software architect exploring the intersection of AI Coding Tools and engineering discipline in the SDLC."
   links:
     - label: "LinkedIn"
@@ -35,9 +36,10 @@ defaults:
       layout: "single"
       author_profile: true
       read_time: true
+      show_date: true
       comments: true
-      classes:
-        - wide
+      toc: true
+      toc_sticky: true
 
 plugins:
   - jekyll-paginate
