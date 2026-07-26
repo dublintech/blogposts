@@ -16,9 +16,9 @@ tags:
   <img src="../../images/Warrior.png" alt="Warrior" />
 </p>
 
-In the previous post, I described how Design Debt can be indicated to AI tooling.
+In the previous post, I described how Design Debt can be indicated to AI Coding Tools.
 
-When I say AI tooling, that could be Claude Code, Amazon Kiro, Copilot, Cursor, or whatever happens to be your preferred development assistant. The specific tool is not important.
+When I say AI Coding Tools, that could be Claude Code, Amazon Kiro, Copilot, Cursor, or whatever happens to be your preferred AI Coding Tool. The specific tool is not important.
 
 This week we take the idea a step further by connecting those Design Debt indicators to ArchUnit.
 
@@ -43,8 +43,8 @@ public class PaymentController {
 This immediately raises some important questions:
 
 1. How do you know the same Design Debt does not exist elsewhere?
-2. What if the AI tooling reads another example that contains the same anti-pattern but does not contain the annotation?
-3. What if the AI tooling ignores both examples and simply reproduces the same design mistake?
+2. What if the AI Coding Tool reads another example that contains the same anti-pattern but does not contain the annotation?
+3. What if the AI Coding Tool ignores both examples and simply reproduces the same design mistake?
 
 Realistically, nobody can review everything.
 
@@ -279,16 +279,16 @@ As a result:
 - Existing debt can remain visible and documented
 - New occurrences are prevented
 - Architectural intent becomes machine-readable
-- AI tooling receives stronger signals about what is and is not a valid pattern
+- AI Coding Tools receive stronger signals about what is and is not a valid pattern
 
 Importantly, if the ArchUnit rule is green, you know one of two things is true:
 
 1. The violation does not exist.
 2. The violation exists but has been explicitly acknowledged as Design Debt.
 
-This significantly reduces the risk of AI tools learning the wrong lessons from legacy code.
+This significantly reduces the risk of AI Coding Tools learning the wrong lessons from legacy code.
 
-## The Interesting Part for AI
+## The Interesting Part for AI Coding Tools
 
 This becomes even more powerful when combined with AI agents.
 
@@ -306,17 +306,17 @@ The architecture rule becomes the specification.
 
 The Design Debt annotation becomes the exception.
 
-The AI agent becomes the remediation engine.
+The AI Coding Tool becomes the remediation engine.
 
 ## Conclusion
 
-By linking Design Debt annotations to executable ArchUnit rules, architectural intent becomes explicit for both humans and AI tooling.
+By linking Design Debt annotations to executable ArchUnit rules, architectural intent becomes explicit for both humans and AI Coding Tools.
 
 This provides several benefits:
 
 - Known Design Debt can be acknowledged without blocking delivery.
 - New violations are prevented automatically.
-- AI tooling is less likely to learn from architectural anti-patterns.
+- AI Coding Tools are less likely to learn from architectural anti-patterns.
 - Architecture rules become a source of truth for future automated remediation.
 
-The result is a codebase that is easier to govern, easier to modernise, and easier for both developers and AI assistants to understand.
+The result is a codebase that is easier to govern, easier to modernise, and easier for both developers and AI Coding Tools to understand.
