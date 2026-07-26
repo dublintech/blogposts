@@ -1,5 +1,9 @@
 # Indicating Your Design Debt (AI LLM in the SDLC — Part 2)
 
+<p align="center">
+  <img src="../../images/TechDebtRobotDude.jpg" alt="Tech Debt Robot Dude" />
+</p>
+
 This post explains how I am currently trying to indicate to the AI LLM what they are looking at is design debt, and how to steer them away from it. I am using the term **design debt** as opposed to *technical debt* to indicate the debt is more structural in nature, and hence more likely to really confuse an AI LLM. That means I am not talking about trivial things like typos in Javadoc, extra blank lines, or anything you could fix with simple linting. Instead, design debt means things that would usually take more time to fix.
 
 Just to be clear — in 25+ years of working with software, I have never experienced any system that doesn't have its fair share of design debt. I've seen it, introduced it, fixed it, prevented it, fought with it, worked around it, missed it, got sick over it, wept over it — you name it, the war wounds are there.

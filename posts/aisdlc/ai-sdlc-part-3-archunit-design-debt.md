@@ -12,6 +12,10 @@ tags:
 
 # AI in the SDLC Part 3 - Linking Design Debt to ArchUnit
 
+<p align="center">
+  <img src="../../images/Warrior.png" alt="Warrior" />
+</p>
+
 In the previous post, I described how Design Debt can be indicated to AI tooling.
 
 When I say AI tooling, that could be Claude Code, Amazon Kiro, Copilot, Cursor, or whatever happens to be your preferred development assistant. The specific tool is not important.
