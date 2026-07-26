@@ -5,6 +5,7 @@ excerpt: "A collection of Technical Articles by Alex Staveley."
 header:
   overlay_color: "#1a1a2e"
   overlay_filter: 0.5
+read_time: false
 ---
 
 <div style="display:flex; align-items:center; gap:1.5em; margin:2em 0 2.5em;">

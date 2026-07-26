@@ -3,6 +3,7 @@ permalink: pretty
 description: "A collection of Technical Articles by Alex Staveley."
 url: "https://dublintech.github.io"
 baseurl: "/blogposts"
+repository: "dublintech/blogposts"
 
 theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "default"

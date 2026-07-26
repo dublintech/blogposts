@@ -34,6 +34,14 @@
   }
 }
 
+// Expand content to use full width — no left sidebar, so remove the right-float offset
+@media (min-width: 1024px) {
+  .page {
+    float: left !important;
+    width: 100% !important;
+  }
+}
+
 // Muted red link colour — similar to martinfowler.com
 a {
   color: #8B2222;
