@@ -14,13 +14,13 @@ tags:
 # Compare & Contrast ArchUnit and AI Coding Tool steering .md files
 
 <p align="center">
-  <img src="../../images/summaryarchmd.png" alt="Summary: ArchUnit vs AI Coding Tool steering .md files" />
+  <img src="../../../images/summaryarchmd.png" alt="Summary: ArchUnit vs AI Coding Tool steering .md files" />
 </p>
 
 With the entire planet talking about AI Coding Tools, there's a lot of chat about .md files and how they need to include architectural and design principles so that the AI Coding Tool will generate better code that sticks to architecture — meaning you have a better chance of keeping your software healthy while you pick up the pace with velocity and delivery. But wait a sec, there already are tools where you specify design and architectural rules? Let's take Java as an example, such a tool is: ArchUnit. So what's the difference between how you define these rules and principles in your ArchUnit vis a vi a .md file? Obviously, ArchUnit is more at the verification or CI stage rather than the generation stage. But, they still include the same architectural principles right?
 
 <p align="center">
-  <img src="../../images/detailarchmd.png" alt="Detail: ArchUnit vs AI Coding Tool steering .md files" />
+  <img src="../../../images/detailarchmd.png" alt="Detail: ArchUnit vs AI Coding Tool steering .md files" />
 </p>
 
 ## ArchUnits v .md Files

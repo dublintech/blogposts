@@ -14,7 +14,7 @@ tags:
 # Indicating Your Design Debt (AI Coding Tool in the SDLC — Part 2)
 
 <p align="center">
-  <img src="../../images/TechDebtRobotDude.jpg" alt="Tech Debt Robot Dude" />
+  <img src="../../../images/TechDebtRobotDude.jpg" alt="Tech Debt Robot Dude" />
 </p>
 
 This post explains how I am currently trying to indicate to the AI Coding Tool what it is looking at is design debt, and how to steer it away from it. I am using the term **design debt** as opposed to *technical debt* to indicate the debt is more structural in nature, and hence more likely to really confuse an AI Coding Tool. That means I am not talking about trivial things like typos in Javadoc, extra blank lines, or anything you could fix with simple linting. Instead, design debt means things that would usually take more time to fix.
