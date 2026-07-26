@@ -1,0 +1,31 @@
+title: "AI in the SDLC"
+description: "Exploring how AI Coding Tools can be integrated into software delivery without losing architectural integrity."
+url: "https://dublintech.github.io"
+baseurl: "/blogposts"
+
+remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: "default"
+
+author:
+  name: "Alex Staveley"
+  bio: "Software architect exploring the intersection of AI Coding Tools and engineering discipline in the SDLC."
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/alex-staveley"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/dublintech"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "single"
+      author_profile: true
+      read_time: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag

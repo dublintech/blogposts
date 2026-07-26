@@ -1,3 +1,15 @@
+---
+title: "Indicating Your Design Debt (AI Coding Tool in the SDLC — Part 2)"
+author: "Alex Staveley"
+tags:
+  - ai
+  - sdlc
+  - architecture
+  - java
+  - design-debt
+  - ai-coding-tool
+---
+
 # Indicating Your Design Debt (AI Coding Tool in the SDLC — Part 2)
 
 <p align="center">
