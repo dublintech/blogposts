@@ -3,7 +3,7 @@ description: "Exploring how AI Coding Tools can be integrated into software deli
 url: "https://dublintech.github.io"
 baseurl: "/blogposts"
 
-remote_theme: mmistakes/minimal-mistakes
+theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "default"
 
 author:
@@ -29,3 +29,4 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-include-cache
