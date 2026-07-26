@@ -1,6 +1,6 @@
 ---
 title: "Compare & Contrast ArchUnit and AI Coding Tool steering .md files"
-date: 2026-07-02
+date: 2026-07-03
 author: "Alex Staveley"
 tags:
   - ai

@@ -1,5 +1,6 @@
 ---
 title: "Indicating Your Design Debt (AI Coding Tool in the SDLC — Part 2)"
+date: 2026-07-10
 author: "Alex Staveley"
 tags:
   - ai

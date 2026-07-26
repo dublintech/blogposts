@@ -1,5 +1,6 @@
 ---
 title: "AI in the SDLC Part 3 - Linking Design Debt to ArchUnit"
+date: 2026-07-26
 author: "Alex Staveley"
 tags:
   - ai
