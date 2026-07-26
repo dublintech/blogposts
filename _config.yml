@@ -17,6 +17,16 @@ author:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/dublintech"
 
+comments:
+  provider: "giscus"
+  giscus:
+    repo_id: "R_kgDOTivnHw"
+    category_name: "Announcements"
+    category_id: "DIC_kwDOTivnH84DCAri"
+    discussion_term: "pathname"
+    reactions_enabled: "1"
+    theme: "light"
+
 defaults:
   - scope:
       path: ""
@@ -24,6 +34,7 @@ defaults:
       layout: "single"
       author_profile: true
       read_time: true
+      comments: true
 
 plugins:
   - jekyll-paginate
