@@ -8,6 +8,12 @@ repository: "dublintech/blogposts"
 theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "default"
 
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-0K0149VHX3"
+    anonymize_ip: false
+
 author:
   name: "Alex Staveley"
   avatar: "/images/me.jpg"
