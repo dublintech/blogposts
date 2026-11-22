@@ -14,7 +14,7 @@ tags:
   <img src="../../../images/ddia-2e-cover.png" alt="Cover of Designing Data-Intensive Applications, 2nd Edition, by Martin Kleppmann and Chris Riccomini" width="300" />
 </p>
 
-I've just finished all 600 pages of the second edition of *Designing Data-Intensive Applications*. It's a big book, with lots of super material. One review would either run very long  So I'm splitting my thoughts into a short series. This first post covers the opening chapters, where the book lays its foundations: how to think about performance and reliability, how to choose a data model, how storage engines work underneath, and how to change your data over time without breaking everything.
+I've just finished 600 pages of the second edition of *Designing Data-Intensive Applications*. It's an excellent book, with lots of super material. One review would run too long.  So I'm splitting my thoughts into multiple posts. This first post covers the opening chapters, where the book lays its foundations: how to think about performance and reliability, how to choose a data model, how storage engines work underneath, and how to change your data over time without breaking everything.
 
 If you've read the first edition, a lot of this will feel familiar, but it's been updated to fit how we build systems now. Rather than summarize each chapter, I've pulled out the ideas that stuck with me, the ones I expect to use in design discussions.
 
@@ -25,11 +25,11 @@ If you've read the first edition, a lot of this will feel familiar, but it's bee
 
 ## Averages hide the users who matter
 
-Early on, the book argues that you should look at response time percentiles, not averages. Most of us know that in principle. What I liked was the explanation of why the high percentiles matter, using Amazon as the example.
+Early on, the book argues that you should look at response time percentiles, not averages. What I liked was the explanation of why the high percentiles matter, using Amazon as the example.
 
-Amazon describes its response-time requirements at the 99.9th percentile, which means caring about the slowest one request in a thousand. That might sound excessive until you ask who those slow requests belong to. Often it's the customers with the most data on their accounts, and they have the most data because they've bought the most. So the slowest requests tend to go to your most valuable customers. If you optimize for the median, you're optimizing for the wrong people.
+Amazon describes its response-time requirements at the 99.9th percentile, which means caring about the slowest one request in a thousand. It might sound excessive caring about the 1 in a 1,000, until you ask who those slow requests belong to. Often it's the customers with the most data on their accounts, and they have the most data because they've bought the most. So the slowest requests tend to go to your most valuable customers. If you optimize for the median, you're optimizing for the wrong people.
 
-A related idea is **tail latency amplification**. A single user-facing request often fans out to several backend calls in parallel, and the user waits for all of them. If even one of those calls is slow, the whole request is slow. The more backends a request touches, the more likely it is to hit at least one slow one. A latency that is rare for each individual service turns out to be common at the level of the user.
+A related idea is **tail latency amplification**. A single user-facing request often fans out to several backend calls in parallel, and the user waits for all of them. If even one of those calls is slow, the whole request is slow. 
 
 ## Faults aren't failures
 
@@ -39,7 +39,7 @@ The point is that you can't prevent faults; at any real scale they happen all th
 
 ## A good abstraction is worth a lot
 
-The book returns several times to the idea that a good abstraction is one of the best tools we have for managing complexity. A well-designed abstraction hides a large amount of messy detail behind a clean interface. SQL is the obvious example: you say what data you want, and the query planner works out how to get it. The difficulty is finding abstractions that hold up, because a leaky one can make things worse than having none.
+A good abstraction is one of the best tools we have for managing complexity. A well-designed abstraction hides a large amount of messy detail behind a clean interface. SQL is the obvious example: you say what data you want, and the query planner works out how to get it. 
 
 ## Schema on read vs schema on write
 
@@ -61,11 +61,12 @@ So the advice is to keep documents fairly small and avoid writes that keep growi
 
 ## Let the relationships decide
 
-If I had to reduce the data models chapter to one sentence, it would be this: the kind of relationships in your data is one of the most important factors in choosing a data model.
+The kind of relationships in your data is an important factors in choosing a data model.
 
 - If your data is mostly **one-to-many**, a tree where each thing contains other things, the document model fits well.
-- If you have many **many-to-one** relationships, where lots of records refer to shared entities, you want joins, and relational databases handle that well.
-- If **many-to-many** relationships are everywhere, and especially if the paths between things vary, it's time to look at a graph database.
+- If lots of records refer to shared entities (**many-to-one**), you want joins, which is the relational model's strength and historically a weakness of document databases.
+- Relational databases handle **many-to-many** fine with join tables. But when everything connects to everything, and your queries follow paths of unknown length, a graph database lets you write the query the way you think about it.
+
 
 The book's graph example made this click for me. Think about representing where people were born and where they live. Places nest inside other places, but differently in every country. In the US you might have city, then state, then country. In France it's city, then département, then région, then country. In the UK it's different again.
 
@@ -92,9 +93,9 @@ This makes DataFrames a natural bridge between relational data and machine learn
 
 ## Two ways to store data
 
-The storage chapter compares two families of storage engines. I think every developer should understand both, even if you never build one.
+The storage chapter compares two families of storage engines. I think every architect / developer should understand both, even if you never build one.
 
-**Log-structured storage**, such as SSTables and LSM-trees, never overwrites data on disk. New writes go into a sorted in-memory buffer called the memtable. When it fills up, it's flushed to disk as an immutable sorted file, an SSTable. In the background, compaction merges these files and discards outdated values. Every write is a fast sequential append, so writes are cheap. The cost shows up on reads: a key might be in any of several files, so a lookup may need to check the memtable and a few SSTables. Bloom filters and compaction keep that under control.
+**Log-structured storage**, such as SSTables and the LSM-trees built from those files, never overwrites data on disk. New writes go into a sorted in-memory buffer called the memtable. When it fills up, it's flushed to disk as an immutable sorted file, an SSTable. In the background, compaction merges these files and discards outdated values. Every write is a fast sequential append, so writes are cheap. The cost shows up on reads: a key might be in any of several files, so a lookup may need to check the memtable and a few SSTables. Bloom filters and compaction keep that under control. It is called log structured because each SSTable is immutable and subsequent SSTables are just appended like a log.
 
 **Update-in-place storage**, the B-tree, takes the opposite approach. Data lives in one sorted tree of fixed-size pages, and a write changes the right page directly on disk. A read is one predictable walk from the root to a leaf, usually three or four levels even for very large datasets, so reads are fast and consistent. The cost shows up on writes: each one is a random page rewrite, plus a write-ahead log entry for crash safety, and sometimes a page split.
 
@@ -109,7 +110,9 @@ During a rolling deployment, or while mobile clients are slowly upgrading, old a
 - **Backward compatibility**: new code can read data written by old code.
 - **Forward compatibility**: old code can read data written by new code.
 
-Forward compatibility is the harder of the two, because old code has to tolerate fields it has never seen. The trap the book describes is a subtle one. Old code reads a record, doesn't recognize a new field, writes the record back, and in doing so silently deletes that field. Nothing crashes and no alert fires; the data just disappears.
+Forward compatibility is the harder of the two, because old code has to tolerate fields it has never seen.  For example, old code reads a record, doesn't recognize a new field, writes the record back, and silently deletes that field.
+
+Nothing crashes and no alert fires; the data just disappears.
 
 ## Why schemas help
 
