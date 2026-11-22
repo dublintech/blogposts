@@ -9,7 +9,7 @@ A collection of Markdown blog posts by Alex Staveley, published at `https://dubl
 ## Site Structure
 
 - `index.md` — Landing page (DublinTech). Uses `layout: splash`. Contains author photo + bio as inline HTML, then article list.
-- `posts/<series-slug>/` — Blog post series. Current series: `posts/aisdlc/` (AI in the SDLC).
+- `posts/<series-slug>/` — Blog post series. Current series: `posts/aisdlc/` (AI in the SDLC), `posts/book-reviews/` (book reviews, multi-part reviews prefixed by book, e.g. `ddia-2e-part-1-...`).
 - `images/` — Shared images. `me.jpg` is the author photo used on the landing page.
 - `_data/navigation.yml` — Site navigation (overrides Minimal Mistakes default nav).
 - `_config.yml` — Jekyll config: theme, author, Giscus comments, permalink, defaults.

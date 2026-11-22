@@ -25,3 +25,9 @@ read_time: false
 - [Part 2 - Indicating Your Design Debt to AI Coding Tools](posts/aisdlc/ai-sdlc-part-2-archunit-design-debt/) — How to annotate known design debt so AI Coding Tools don't accidentally reproduce architectural anti-patterns.
 
 - [Part 3 - Linking Design Debt to ArchUnit](posts/aisdlc/ai-sdlc-part-3-archunit-design-debt/) — Extends Part 2 by connecting design debt annotations to executable ArchUnit rules to prevent new violations automatically.
+
+## Book Reviews
+
+### Designing Data-Intensive Applications (2nd Edition)
+
+- [Part 1 - Setting the Scene](posts/book-reviews/ddia-2e-part-1-setting-the-scene/) — The foundations: percentiles over averages, faults vs failures, choosing a data model, LSM-trees vs B-trees, and why data outlives code.
