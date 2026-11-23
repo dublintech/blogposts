@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" font-family="Helvetica, Arial, sans-serif">
+<rect width="880" height="360" fill="white"/>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8B2222"/></marker>
+<marker id="ak" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="an" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6b3a"/></marker>
+</defs>
+<text x="440" y="30" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">Write skew: two transactions, one meeting room</text>
+<rect x="15" y="73" width="110" height="44" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="70.0" y="91.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Transaction A</text>
+<text x="70.0" y="107.2" font-size="11" fill="#666" text-anchor="middle" >(Alice)</text>
+<line x1="125" y1="95" x2="655" y2="95" stroke="#ccc" stroke-width="2"/>
+<rect x="15" y="223" width="110" height="44" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="70.0" y="241.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Transaction B</text>
+<text x="70.0" y="257.2" font-size="11" fill="#666" text-anchor="middle" >(Bob)</text>
+<line x1="125" y1="245" x2="655" y2="245" stroke="#ccc" stroke-width="2"/>
+<rect x="140" y="78" width="70" height="34" rx="6" fill="white" stroke="#666" stroke-width="1.5"/>
+<text x="175.0" y="98.85" font-size="11" fill="#222" text-anchor="middle" >BEGIN</text>
+<rect x="225" y="78" width="175" height="34" rx="6" fill="white" stroke="#666" stroke-width="1.5"/>
+<text x="312.5" y="98.85" font-size="11" fill="#222" text-anchor="middle" >Is room 101 free at 2pm?</text>
+<rect x="415" y="78" width="120" height="34" rx="6" fill="white" stroke="#666" stroke-width="1.5"/>
+<text x="475.0" y="98.85" font-size="11" fill="#222" text-anchor="middle" >INSERT booking</text>
+<rect x="550" y="78" width="75" height="34" rx="6" fill="white" stroke="#666" stroke-width="1.5"/>
+<text x="587.5" y="98.85" font-size="11" fill="#222" text-anchor="middle" >COMMIT</text>
+<text x="312" y="131" font-size="11" fill="#2e6b3a" text-anchor="middle" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">0 rows in my snapshot → free ✓</text>
+<rect x="165" y="228" width="70" height="34" rx="6" fill="white" stroke="#666" stroke-width="1.5"/>
+<text x="200.0" y="248.85" font-size="11" fill="#222" text-anchor="middle" >BEGIN</text>
+<rect x="250" y="228" width="175" height="34" rx="6" fill="white" stroke="#666" stroke-width="1.5"/>
+<text x="337.5" y="248.85" font-size="11" fill="#222" text-anchor="middle" >Is room 101 free at 2pm?</text>
+<rect x="440" y="228" width="120" height="34" rx="6" fill="white" stroke="#666" stroke-width="1.5"/>
+<text x="500.0" y="248.85" font-size="11" fill="#222" text-anchor="middle" >INSERT booking</text>
+<rect x="575" y="228" width="75" height="34" rx="6" fill="white" stroke="#666" stroke-width="1.5"/>
+<text x="612.5" y="248.85" font-size="11" fill="#222" text-anchor="middle" >COMMIT</text>
+<text x="337" y="281" font-size="11" fill="#2e6b3a" text-anchor="middle" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">0 rows in my snapshot → free ✓</text>
+<rect x="700" y="140" width="165" height="70" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="782.5" y="163.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Room 101 @ 2pm</text>
+<text x="782.5" y="179.2" font-size="11" fill="#8B2222" text-anchor="middle" >2 bookings ✗</text>
+<text x="782.5" y="195.2" font-size="11" fill="#8B2222" text-anchor="middle" >double-booked</text>
+<line x1="632" y1="100" x2="740" y2="138" stroke="#8B2222" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="657" y1="240" x2="750" y2="212" stroke="#8B2222" stroke-width="1.6" marker-end="url(#ar)"/>
+<text x="135" y="330" font-size="12" fill="#222" text-anchor="start" >Neither transaction overwrote the other's row, so snapshot isolation sees no conflict.</text>
+<text x="135" y="350" font-size="12" fill="#666" text-anchor="start" >Each decision was based on a premise ("the room is free") that the other transaction made false.</text>
+<line x1="140" y1="172" x2="620" y2="172" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<text x="630" y="176" font-size="11" fill="#666" text-anchor="start" font-style="italic">time</text>
+</svg>

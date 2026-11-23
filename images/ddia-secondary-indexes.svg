@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" font-family="Helvetica, Arial, sans-serif">
+<rect width="880" height="420" fill="white"/>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8B2222"/></marker>
+<marker id="ak" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="an" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6b3a"/></marker>
+</defs>
+<text x="215" y="30" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">Local secondary index</text>
+<rect x="20" y="55" width="150" height="34" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="95.0" y="75.85" font-size="11" fill="#222" text-anchor="middle" >write product 42 (red)</text>
+<rect x="245" y="55" width="165" height="34" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="327.5" y="75.85" font-size="11" fill="#222" text-anchor="middle" >read: colour = red</text>
+<rect x="20" y="175" width="125" height="95" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="82.5" y="202.7" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Shard 1</text>
+<text x="82.5" y="218.7" font-size="11" fill="#222" text-anchor="middle" >products 1–99</text>
+<text x="82.5" y="234.7" font-size="11" fill="#666" text-anchor="middle" >index:</text>
+<text x="82.5" y="250.7" font-size="11" fill="#666" text-anchor="middle" >red → 12, 42</text>
+<rect x="155" y="175" width="125" height="95" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="217.5" y="202.7" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Shard 2</text>
+<text x="217.5" y="218.7" font-size="11" fill="#222" text-anchor="middle" >products 100–199</text>
+<text x="217.5" y="234.7" font-size="11" fill="#666" text-anchor="middle" >index:</text>
+<text x="217.5" y="250.7" font-size="11" fill="#666" text-anchor="middle" >red → 107</text>
+<rect x="290" y="175" width="125" height="95" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="352.5" y="202.7" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Shard 3</text>
+<text x="352.5" y="218.7" font-size="11" fill="#222" text-anchor="middle" >products 200–299</text>
+<text x="352.5" y="234.7" font-size="11" fill="#666" text-anchor="middle" >index:</text>
+<text x="352.5" y="250.7" font-size="11" fill="#666" text-anchor="middle" >red → 207</text>
+<line x1="80" y1="89" x2="80" y2="173" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<line x1="327" y1="89" x2="82" y2="173" stroke="#8B2222" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="327" y1="89" x2="217" y2="173" stroke="#8B2222" stroke-width="1.6" marker-end="url(#ar)"/>
+<line x1="327" y1="89" x2="352" y2="173" stroke="#8B2222" stroke-width="1.6" marker-end="url(#ar)"/>
+<text x="360" y="122" font-size="11" fill="#8B2222" text-anchor="start" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">scatter /</text>
+<text x="360" y="136" font-size="11" fill="#8B2222" text-anchor="start" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">gather</text>
+<text x="30" y="320" font-size="12" fill="#222" text-anchor="start" >Each shard indexes only its own rows.</text>
+<text x="30" y="350" font-size="12" fill="#2e6b3a" text-anchor="start" font-weight="bold">✓ A write touches one shard</text>
+<text x="30" y="372" font-size="12" fill="#8B2222" text-anchor="start" font-weight="bold">✗ A read must ask every shard</text>
+<line x1="440" y1="20" x2="440" y2="400" stroke="#ddd" stroke-width="1.5"/>
+<text x="665" y="30" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">Global secondary index</text>
+<rect x="455" y="55" width="150" height="34" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="530.0" y="75.85" font-size="11" fill="#222" text-anchor="middle" >write product 42 (red)</text>
+<rect x="700" y="55" width="165" height="34" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="782.5" y="75.85" font-size="11" fill="#222" text-anchor="middle" >read: colour = red</text>
+<rect x="610" y="150" width="120" height="62" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="670.0" y="177.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Index shard</text>
+<text x="670.0" y="193.2" font-size="11" fill="#666" text-anchor="middle" >colours a–m</text>
+<rect x="745" y="150" width="120" height="62" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="805.0" y="169.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Index shard</text>
+<text x="805.0" y="185.2" font-size="11" fill="#666" text-anchor="middle" >colours n–z</text>
+<text x="805.0" y="201.2" font-size="11" fill="#666" text-anchor="middle" >red → 12, 42, 107, 207</text>
+<rect x="455" y="280" width="130" height="50" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="520.0" y="301.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Shard 1</text>
+<text x="520.0" y="317.2" font-size="11" fill="#666" text-anchor="middle" >products 1–99</text>
+<rect x="595" y="280" width="130" height="50" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="660.0" y="301.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Shard 2</text>
+<text x="660.0" y="317.2" font-size="11" fill="#666" text-anchor="middle" >products 100–199</text>
+<rect x="735" y="280" width="130" height="50" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="800.0" y="301.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Shard 3</text>
+<text x="800.0" y="317.2" font-size="11" fill="#666" text-anchor="middle" >products 200–299</text>
+<line x1="520" y1="89" x2="520" y2="278" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<line x1="560" y1="89" x2="770" y2="148" stroke="#222" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#ak)"/>
+<text x="640" y="113" font-size="10" fill="#222" text-anchor="middle" font-style="italic" stroke="white" stroke-width="4" paint-order="stroke">also update the index</text>
+<line x1="820" y1="89" x2="820" y2="148" stroke="#8B2222" stroke-width="1.6" marker-end="url(#ar)"/>
+<text x="842" y="125" font-size="10" fill="#8B2222" text-anchor="middle" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">one shard</text>
+<text x="465" y="360" font-size="12" fill="#222" text-anchor="start" >The index is sharded by the indexed value.</text>
+<text x="465" y="385" font-size="12" fill="#2e6b3a" text-anchor="start" font-weight="bold">✓ A read goes to one index shard</text>
+<text x="465" y="405" font-size="12" fill="#8B2222" text-anchor="start" font-weight="bold">✗ A write may update several shards</text>
+</svg>

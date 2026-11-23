@@ -31,3 +31,5 @@ read_time: false
 ### Designing Data-Intensive Applications (2nd Edition)
 
 - [Part 1 - Setting the Scene](posts/book-reviews/ddia-2e-part-1-setting-the-scene/) — The foundations: percentiles over averages, faults vs failures, choosing a data model, LSM-trees vs B-trees, and why data outlives code.
+
+- [Part 2 - Replication, Sharding and Transactions](posts/book-reviews/ddia-2e-part-2-replication-sharding-transactions/) — Replication logs and lag, multi-leader and CRDTs, quorums, sharding and secondary indexes, snapshot isolation and write skew.

@@ -72,6 +72,10 @@ The book's graph example made this click for me. Think about representing where 
 
 Trying to fit that into fixed columns like `city`, `state` and `country` gets awkward quickly. In a graph you don't need to. Every place is a vertex, each vertex has a type, and they're linked by a single relationship, `WITHIN`. People link to places with `BORN_IN` or `LIVES_IN`. The graph doesn't need to know what a département is; it only knows that one place is within another.
 
+<p align="center">
+  <img src="../../../images/ddia-graph-people-places.svg" alt="Graph of places linked by WITHIN edges at different depths: Idaho within United States within North America; Beaune within Côte-d'Or within Bourgogne-Franche-Comté within France within Europe; London within United Kingdom within Europe. Lucy is BORN_IN Idaho and LIVES_IN London; Alain is BORN_IN Beaune and LIVES_IN London." />
+</p>
+
 Querying is where this pays off. To find everyone born in the US who now lives in Europe, a graph query language like Cypher lets you write:
 
 ```cypher
@@ -98,6 +102,10 @@ The storage chapter compares two families of storage engines. I think every arch
 **Log-structured storage**, such as SSTables and the LSM-trees built from those files, never overwrites data on disk. New writes go into a sorted in-memory buffer called the memtable. When it fills up, it's flushed to disk as an immutable sorted file, an SSTable. In the background, compaction merges these files and discards outdated values. Every write is a fast sequential append, so writes are cheap. The cost shows up on reads: a key might be in any of several files, so a lookup may need to check the memtable and a few SSTables. Bloom filters and compaction keep that under control. It is called log structured because each SSTable is immutable and subsequent SSTables are just appended like a log.
 
 **Update-in-place storage**, the B-tree, takes the opposite approach. Data lives in one sorted tree of fixed-size pages, and a write changes the right page directly on disk. A read is one predictable walk from the root to a leaf, usually three or four levels even for very large datasets, so reads are fast and consistent. The cost shows up on writes: each one is a random page rewrite, plus a write-ahead log entry for crash safety, and sometimes a page split.
+
+<p align="center">
+  <img src="../../../images/ddia-lsm-vs-btree.svg" alt="Side-by-side comparison. LSM-tree: writes go to an in-memory sorted memtable, which is flushed to immutable SSTables on disk, and compaction merges older SSTables. B-tree: a tree of fixed-size pages where reads and writes walk from root to leaf, with every write first recorded in a write-ahead log." />
+</p>
 
 Put simply, LSM-trees make writing cheap and pay later when reading and compacting, while B-trees pay up front on every write so reads stay cheap. The book is careful to call this a rule of thumb, and I agree. Real performance depends on your workload, so benchmark your own access patterns.
 
