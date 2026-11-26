@@ -71,7 +71,10 @@ The token issuer can't be a single machine, or it would be a single point of fai
 
 ## Linearizability vs serializability
 
-These two words sound alike, and I'd been guilty of using them loosely. The book makes the distinction clear with an example. Imagine a database with a leader and a replica, and two sports fans, Alice and Bob, both checking the score of a match on their phones.
+These two words sound alike, and I'd been guilty of using them loosely.
+The book illustrates this with Alice and Bob checking a football score on their phones. Here's my version of it with a leader and a lagging replica which just helped me get it clearer.
+
+Imagine a database with a leader and a replica, and two sports fans, Alice and Bob, both checking the score of a match on their phones.
 
 | Time | What happens |
 |---|---|
@@ -96,7 +99,7 @@ In short: serializability is about isolating transactions from each other; linea
 
 Because it's expensive, and because some replication designs can't provide it:
 
-- **Single-leader** replication can be linearizable, if you read from the leader or from replicas that are updated synchronously.
+- **Single-leader** replication is potentially linearizable, if you read from the leader or from synchronously updated replicas, but only if the leader really is the leader. A zombie leader serving reads breaks it, which is the fencing problem again.
 - **Multi-leader** replication is not linearizable. Two leaders can accept conflicting writes at the same time.
 - **Leaderless** replication is generally not linearizable either, even with quorums, because of the edge cases from [Part 2](../ddia-2e-part-2-replication-sharding-transactions/).
 
