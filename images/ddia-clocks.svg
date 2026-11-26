@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" font-family="Helvetica, Arial, sans-serif">
+<rect width="880" height="340" fill="white"/>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8B2222"/></marker>
+<marker id="ak" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="an" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6b3a"/></marker>
+</defs>
+<text x="225" y="30" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">Time-of-day clock</text>
+<line x1="60" y1="280" x2="410" y2="280" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<line x1="60" y1="280" x2="60" y2="50" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<text x="410" y="300" font-size="11" fill="#666" text-anchor="end" font-style="italic">real time →</text>
+<text x="50" y="60" font-size="11" fill="#666" text-anchor="end" font-style="italic">clock</text>
+<text x="50" y="74" font-size="11" fill="#666" text-anchor="end" font-style="italic">reading</text>
+<line x1="60" y1="280" x2="400" y2="60.01999999999998" stroke="#999" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="340" y="120.84" font-size="10" fill="#666" text-anchor="middle" font-style="italic" stroke="white" stroke-width="4" paint-order="stroke">true time</text>
+<line x1="240" y1="285" x2="240" y2="292" stroke="#666" stroke-width="1.5"/>
+<text x="240" y="305" font-size="10" fill="#666" text-anchor="middle" font-style="italic">NTP sync</text>
+<polyline points="60,280 240,134.92" fill="none" stroke="#8B2222" stroke-width="2.5" stroke-linejoin="round"/>
+<polyline points="240,134.92 240,175.54" fill="none" stroke="#8B2222" stroke-width="2.5" stroke-dasharray="4 3" stroke-linejoin="round"/>
+<polyline points="240,175.54 400,72.01999999999998" fill="none" stroke="#8B2222" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="250" y="158" font-size="11" fill="#8B2222" text-anchor="start" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">jumps backwards!</text>
+<text x="120" y="175" font-size="10" fill="#666" text-anchor="end" font-style="italic" stroke="white" stroke-width="4" paint-order="stroke">running fast</text>
+<text x="225" y="328" font-size="12" fill="#222" text-anchor="middle" >Good for timestamps. Bad for measuring durations.</text>
+<line x1="440" y1="20" x2="440" y2="335" stroke="#ddd" stroke-width="1.5"/>
+<text x="665" y="30" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">Monotonic clock</text>
+<line x1="500" y1="280" x2="850" y2="280" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<line x1="500" y1="280" x2="500" y2="50" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<text x="850" y="300" font-size="11" fill="#666" text-anchor="end" font-style="italic">real time →</text>
+<text x="490" y="60" font-size="11" fill="#666" text-anchor="end" font-style="italic">clock</text>
+<text x="490" y="74" font-size="11" fill="#666" text-anchor="end" font-style="italic">reading</text>
+<line x1="500" y1="280" x2="840" y2="60.01999999999998" stroke="#999" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="780" y="120.84" font-size="10" fill="#666" text-anchor="middle" font-style="italic" stroke="white" stroke-width="4" paint-order="stroke">true time</text>
+<line x1="680" y1="285" x2="680" y2="292" stroke="#666" stroke-width="1.5"/>
+<text x="680" y="305" font-size="10" fill="#666" text-anchor="middle" font-style="italic">NTP sync</text>
+<polyline points="500,280 680,134.92 825,70 840,60.3" fill="none" stroke="#2e6b3a" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="760" y="200" font-size="11" fill="#2e6b3a" text-anchor="middle" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">NTP slews the rate:</text>
+<text x="760" y="214" font-size="11" fill="#2e6b3a" text-anchor="middle" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">slower, never backwards</text>
+<text x="560" y="175" font-size="10" fill="#666" text-anchor="end" font-style="italic" stroke="white" stroke-width="4" paint-order="stroke">running fast</text>
+<text x="665" y="328" font-size="12" fill="#222" text-anchor="middle" >Good for durations and timeouts. Meaningless across machines.</text>
+</svg>

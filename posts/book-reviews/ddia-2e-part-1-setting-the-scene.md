@@ -61,7 +61,7 @@ So the advice is to keep documents fairly small and avoid writes that keep growi
 
 ## Let the relationships decide
 
-The kind of relationships in your data is an important factors in choosing a data model.
+The kind of relationships in your data is an important factor in choosing a data model.
 
 - If your data is mostly **one-to-many**, a tree where each thing contains other things, the document model fits well.
 - If lots of records refer to shared entities (**many-to-one**), you want joins, which is the relational model's strength and historically a weakness of document databases.

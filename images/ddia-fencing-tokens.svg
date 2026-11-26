@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" font-family="Helvetica, Arial, sans-serif">
+<rect width="880" height="440" fill="white"/>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8B2222"/></marker>
+<marker id="ak" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="an" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6b3a"/></marker>
+</defs>
+<text x="440" y="28" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">Fencing tokens: the zombie's write is rejected</text>
+<rect x="15" y="63" width="120" height="44" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="75.0" y="81.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Lock service</text>
+<text x="75.0" y="97.2" font-size="11" fill="#666" text-anchor="middle" >ZooKeeper / etcd</text>
+<line x1="135" y1="85" x2="865" y2="85" stroke="#ccc" stroke-width="2"/>
+<rect x="15" y="153" width="120" height="44" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="75.0" y="171.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Node 1</text>
+<text x="75.0" y="187.2" font-size="11" fill="#666" text-anchor="middle" >old leader</text>
+<line x1="135" y1="175" x2="865" y2="175" stroke="#ccc" stroke-width="2"/>
+<rect x="15" y="243" width="120" height="44" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="75.0" y="261.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Node 2</text>
+<text x="75.0" y="277.2" font-size="11" fill="#666" text-anchor="middle" >new leader</text>
+<line x1="135" y1="265" x2="865" y2="265" stroke="#ccc" stroke-width="2"/>
+<rect x="15" y="333" width="120" height="44" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="75.0" y="351.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Storage</text>
+<text x="75.0" y="367.2" font-size="11" fill="#666" text-anchor="middle" >checks tokens</text>
+<line x1="135" y1="355" x2="865" y2="355" stroke="#ccc" stroke-width="2"/>
+<line x1="170" y1="171" x2="195" y2="89" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<text x="160" y="128" font-size="10" fill="#222" text-anchor="end"  stroke="white" stroke-width="4" paint-order="stroke">get lease</text>
+<line x1="205" y1="89" x2="230" y2="171" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<text x="222" y="118" font-size="10" fill="#2e6b3a" text-anchor="start" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">ok, token 33</text>
+<rect x="255" y="163" width="400" height="24" rx="4" fill="#fbecec" stroke="#8B2222" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="455" y="179" font-size="11" fill="#8B2222" text-anchor="middle" font-weight="bold">stop-the-world GC pause (node 1 still thinks it's leader)</text>
+<line x1="360" y1="71" x2="360" y2="99" stroke="#8B2222" stroke-width="2.5"/>
+<text x="360" y="65" font-size="10" fill="#8B2222" text-anchor="middle" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">lease expires</text>
+<line x1="420" y1="261" x2="445" y2="89" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<text x="415" y="225" font-size="10" fill="#222" text-anchor="end"  stroke="white" stroke-width="4" paint-order="stroke">get lease</text>
+<line x1="455" y1="89" x2="480" y2="261" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<text x="480" y="225" font-size="10" fill="#2e6b3a" text-anchor="start" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">ok, token 34</text>
+<line x1="530" y1="269" x2="555" y2="351" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<text x="525" y="315" font-size="10" fill="#222" text-anchor="end"  stroke="white" stroke-width="4" paint-order="stroke">write, token 34</text>
+<line x1="565" y1="351" x2="590" y2="269" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<text x="590" y="315" font-size="10" fill="#2e6b3a" text-anchor="start" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">ok (max = 34)</text>
+<line x1="680" y1="179" x2="735" y2="351" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<text x="690" y="240" font-size="10" fill="#222" text-anchor="start"  stroke="white" stroke-width="4" paint-order="stroke">write, token 33</text>
+<rect x="705" y="369" width="165" height="40" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="787.5" y="385.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">✗ rejected</text>
+<text x="787.5" y="401.2" font-size="11" fill="#8B2222" text-anchor="middle" >33 &lt; 34</text>
+<line x1="860" y1="415" x2="870" y2="415" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<line x1="150" y1="415" x2="860" y2="415" stroke="#666" stroke-width="1.5"/>
+<text x="150" y="432" font-size="11" fill="#666" text-anchor="start" font-style="italic">time →</text>
+</svg>
