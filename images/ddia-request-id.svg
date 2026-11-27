@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 290" font-family="Helvetica, Arial, sans-serif">
+<rect width="880" height="290" fill="white"/>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8B2222"/></marker>
+<marker id="ak" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="an" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6b3a"/></marker>
+</defs>
+<text x="440" y="28" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">End-to-end: one request ID, from the client all the way down</text>
+<rect x="15" y="105" width="120" height="60" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="75.0" y="131.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Customer</text>
+<text x="75.0" y="147.2" font-size="11" fill="#666" text-anchor="middle" >double-clicks Pay</text>
+<rect x="195" y="60" width="175" height="44" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="282.5" y="78.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Request 1</text>
+<text x="282.5" y="94.2" font-size="11" fill="#666" text-anchor="middle" >id 7f3a, pay £100</text>
+<rect x="195" y="165" width="175" height="44" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="282.5" y="183.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Request 2</text>
+<text x="282.5" y="199.2" font-size="11" fill="#666" text-anchor="middle" >id 7f3a, pay £100</text>
+<line x1="135" y1="125" x2="193" y2="85" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<line x1="135" y1="145" x2="193" y2="185" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<rect x="430" y="95" width="170" height="80" rx="6" fill="#e8eef8" stroke="#666" stroke-width="1.5"/>
+<text x="515.0" y="123.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Payment service</text>
+<text x="515.0" y="139.2" font-size="11" fill="#666" text-anchor="middle" >unique constraint</text>
+<text x="515.0" y="155.2" font-size="11" fill="#666" text-anchor="middle" >on request_id</text>
+<line x1="370" y1="82" x2="428" y2="120" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<line x1="370" y1="187" x2="428" y2="152" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<rect x="660" y="60" width="205" height="44" rx="6" fill="#eaf4ec" stroke="#2e6b3a" stroke-width="1.5"/>
+<text x="762.5" y="86.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">7f3a: charge £100 ✓</text>
+<rect x="660" y="165" width="205" height="44" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="762.5" y="191.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">7f3a again: duplicate, skip</text>
+<line x1="600" y1="120" x2="658" y2="85" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<line x1="600" y1="152" x2="658" y2="185" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<text x="440" y="250" font-size="12" fill="#222" text-anchor="middle" >The ID is generated once, on the client, so every step can recognise the duplicate.</text>
+<text x="440" y="270" font-size="12" fill="#666" text-anchor="middle" >The customer is charged exactly once.</text>
+</svg>

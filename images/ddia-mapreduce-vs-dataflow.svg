@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" font-family="Helvetica, Arial, sans-serif">
+<rect width="880" height="360" fill="white"/>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8B2222"/></marker>
+<marker id="ak" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="an" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6b3a"/></marker>
+</defs>
+<text x="20" y="34" font-size="15" fill="#222" text-anchor="start" font-weight="bold">MapReduce workflow</text>
+<rect x="20" y="60" width="80" height="48" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="60.0" y="80.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">input</text>
+<text x="60.0" y="96.2" font-size="11" fill="#666" text-anchor="middle" >HDFS</text>
+<rect x="125" y="60" width="110" height="48" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="180.0" y="80.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Job 1</text>
+<text x="180.0" y="96.2" font-size="11" fill="#666" text-anchor="middle" >map → reduce</text>
+<line x1="102" y1="84" x2="123" y2="84" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<rect x="260" y="60" width="95" height="48" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="307.5" y="80.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">write to</text>
+<text x="307.5" y="96.2" font-size="11" fill="#8B2222" text-anchor="middle" >HDFS (3 copies)</text>
+<line x1="237" y1="84" x2="258" y2="84" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<rect x="380" y="60" width="110" height="48" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="435.0" y="80.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Job 2</text>
+<text x="435.0" y="96.2" font-size="11" fill="#666" text-anchor="middle" >map → reduce</text>
+<line x1="357" y1="84" x2="378" y2="84" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<rect x="515" y="60" width="95" height="48" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="562.5" y="80.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">write to</text>
+<text x="562.5" y="96.2" font-size="11" fill="#8B2222" text-anchor="middle" >HDFS (3 copies)</text>
+<line x1="492" y1="84" x2="513" y2="84" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<rect x="635" y="60" width="110" height="48" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="690.0" y="80.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">Job 3</text>
+<text x="690.0" y="96.2" font-size="11" fill="#666" text-anchor="middle" >map → reduce</text>
+<line x1="612" y1="84" x2="633" y2="84" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<rect x="770" y="60" width="90" height="48" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="815.0" y="80.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">output</text>
+<text x="815.0" y="96.2" font-size="11" fill="#666" text-anchor="middle" >HDFS</text>
+<line x1="747" y1="84" x2="768" y2="84" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<text x="20" y="140" font-size="12" fill="#666" text-anchor="start" >Every job's output is written to the distributed filesystem before the next job can start.</text>
+<line x1="20" y1="165" x2="860" y2="165" stroke="#ddd" stroke-width="1.5"/>
+<text x="20" y="198" font-size="15" fill="#222" text-anchor="start" font-weight="bold">Dataflow engine (Spark, Flink)</text>
+<rect x="20" y="222" width="80" height="48" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="60.0" y="242.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">input</text>
+<text x="60.0" y="258.2" font-size="11" fill="#666" text-anchor="middle" >object store</text>
+<rect x="140" y="222" width="100" height="48" rx="6" fill="#eaf4ec" stroke="#2e6b3a" stroke-width="1.5"/>
+<text x="190.0" y="250.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">filter</text>
+<line x1="102" y1="246" x2="138" y2="246" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<rect x="280" y="222" width="100" height="48" rx="6" fill="#eaf4ec" stroke="#2e6b3a" stroke-width="1.5"/>
+<text x="330.0" y="250.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">join</text>
+<line x1="242" y1="246" x2="278" y2="246" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<text x="260.0" y="214" font-size="9" fill="#2e6b3a" text-anchor="middle" font-style="italic" stroke="white" stroke-width="4" paint-order="stroke">memory</text>
+<rect x="420" y="222" width="100" height="48" rx="6" fill="#eaf4ec" stroke="#2e6b3a" stroke-width="1.5"/>
+<text x="470.0" y="250.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">group by</text>
+<line x1="382" y1="246" x2="418" y2="246" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<text x="400.0" y="214" font-size="9" fill="#2e6b3a" text-anchor="middle" font-style="italic" stroke="white" stroke-width="4" paint-order="stroke">memory</text>
+<rect x="560" y="222" width="100" height="48" rx="6" fill="#eaf4ec" stroke="#2e6b3a" stroke-width="1.5"/>
+<text x="610.0" y="250.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">aggregate</text>
+<line x1="522" y1="246" x2="558" y2="246" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<text x="540.0" y="214" font-size="9" fill="#2e6b3a" text-anchor="middle" font-style="italic" stroke="white" stroke-width="4" paint-order="stroke">memory</text>
+<rect x="770" y="222" width="90" height="48" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="815.0" y="242.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">output</text>
+<text x="815.0" y="258.2" font-size="11" fill="#666" text-anchor="middle" >object store</text>
+<line x1="662" y1="246" x2="768" y2="246" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<text x="20" y="302" font-size="12" fill="#666" text-anchor="start" >One job, built from operators. Intermediate data stays in memory or on local disk.</text>
+<text x="20" y="330" font-size="12" fill="#222" text-anchor="start" font-weight="bold">Recovery:</text>
+<text x="90" y="330" font-size="12" fill="#222" text-anchor="start" >Spark recomputes lost partitions from lineage. Flink restarts from its latest checkpoint.</text>
+</svg>

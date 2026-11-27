@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 425" font-family="Helvetica, Arial, sans-serif">
+<rect width="880" height="425" fill="white"/>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8B2222"/></marker>
+<marker id="ak" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="an" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6b3a"/></marker>
+</defs>
+<text x="440" y="28" font-size="15" fill="#222" text-anchor="middle" font-weight="bold">Same data, two layouts on disk</text>
+<rect x="290" y="45" width="75" height="24" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="327.5" y="61" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">user_id</text>
+<rect x="365" y="45" width="75" height="24" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="402.5" y="61" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">country</text>
+<rect x="440" y="45" width="75" height="24" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="477.5" y="61" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">date</text>
+<rect x="515" y="45" width="75" height="24" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="552.5" y="61" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">amount</text>
+<rect x="290" y="69" width="75" height="24" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="327.5" y="85" font-size="11" fill="#222" text-anchor="middle" >u1</text>
+<rect x="365" y="69" width="75" height="24" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="402.5" y="85" font-size="11" fill="#222" text-anchor="middle" >IE</text>
+<rect x="440" y="69" width="75" height="24" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="477.5" y="85" font-size="11" fill="#222" text-anchor="middle" >3 Jan</text>
+<rect x="515" y="69" width="75" height="24" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="552.5" y="85" font-size="11" fill="#222" text-anchor="middle" >20</text>
+<rect x="290" y="93" width="75" height="24" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="327.5" y="109" font-size="11" fill="#222" text-anchor="middle" >u2</text>
+<rect x="365" y="93" width="75" height="24" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="402.5" y="109" font-size="11" fill="#222" text-anchor="middle" >FR</text>
+<rect x="440" y="93" width="75" height="24" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="477.5" y="109" font-size="11" fill="#222" text-anchor="middle" >3 Jan</text>
+<rect x="515" y="93" width="75" height="24" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="552.5" y="109" font-size="11" fill="#222" text-anchor="middle" >35</text>
+<rect x="290" y="117" width="75" height="24" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="327.5" y="133" font-size="11" fill="#222" text-anchor="middle" >u3</text>
+<rect x="365" y="117" width="75" height="24" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="402.5" y="133" font-size="11" fill="#222" text-anchor="middle" >IE</text>
+<rect x="440" y="117" width="75" height="24" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="477.5" y="133" font-size="11" fill="#222" text-anchor="middle" >4 Jan</text>
+<rect x="515" y="117" width="75" height="24" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="552.5" y="133" font-size="11" fill="#222" text-anchor="middle" >12</text>
+<rect x="290" y="141" width="75" height="24" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="327.5" y="157" font-size="11" fill="#222" text-anchor="middle" >u4</text>
+<rect x="365" y="141" width="75" height="24" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="402.5" y="157" font-size="11" fill="#222" text-anchor="middle" >IE</text>
+<rect x="440" y="141" width="75" height="24" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="477.5" y="157" font-size="11" fill="#222" text-anchor="middle" >4 Jan</text>
+<rect x="515" y="141" width="75" height="24" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="552.5" y="157" font-size="11" fill="#222" text-anchor="middle" >50</text>
+<text x="56" y="193" font-size="13" fill="#222" text-anchor="start" font-weight="bold">Avro: row-oriented. One whole record after another.</text>
+<rect x="56" y="205" width="48" height="28" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="80.0" y="223" font-size="10" fill="#222" text-anchor="middle" >u1</text>
+<rect x="104" y="205" width="48" height="28" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="128.0" y="223" font-size="10" fill="#222" text-anchor="middle" >IE</text>
+<rect x="152" y="205" width="48" height="28" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="176.0" y="223" font-size="10" fill="#222" text-anchor="middle" >3 Jan</text>
+<rect x="200" y="205" width="48" height="28" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="224.0" y="223" font-size="10" fill="#222" text-anchor="middle" >20</text>
+<rect x="248" y="205" width="48" height="28" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="272.0" y="223" font-size="10" fill="#222" text-anchor="middle" >u2</text>
+<rect x="296" y="205" width="48" height="28" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="320.0" y="223" font-size="10" fill="#222" text-anchor="middle" >FR</text>
+<rect x="344" y="205" width="48" height="28" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="368.0" y="223" font-size="10" fill="#222" text-anchor="middle" >3 Jan</text>
+<rect x="392" y="205" width="48" height="28" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="416.0" y="223" font-size="10" fill="#222" text-anchor="middle" >35</text>
+<rect x="440" y="205" width="48" height="28" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="464.0" y="223" font-size="10" fill="#222" text-anchor="middle" >u3</text>
+<rect x="488" y="205" width="48" height="28" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="512.0" y="223" font-size="10" fill="#222" text-anchor="middle" >IE</text>
+<rect x="536" y="205" width="48" height="28" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="560.0" y="223" font-size="10" fill="#222" text-anchor="middle" >4 Jan</text>
+<rect x="584" y="205" width="48" height="28" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="608.0" y="223" font-size="10" fill="#222" text-anchor="middle" >12</text>
+<rect x="632" y="205" width="48" height="28" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="656.0" y="223" font-size="10" fill="#222" text-anchor="middle" >u4</text>
+<rect x="680" y="205" width="48" height="28" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="704.0" y="223" font-size="10" fill="#222" text-anchor="middle" >IE</text>
+<rect x="728" y="205" width="48" height="28" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="752.0" y="223" font-size="10" fill="#222" text-anchor="middle" >4 Jan</text>
+<rect x="776" y="205" width="48" height="28" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="800.0" y="223" font-size="10" fill="#222" text-anchor="middle" >50</text>
+<text x="56" y="251" font-size="11" fill="#666" text-anchor="start" >Good when you need whole records: messages, events, writing a record at a time.</text>
+<text x="56" y="293" font-size="13" fill="#222" text-anchor="start" font-weight="bold">Parquet: column-oriented. All values of one column together.</text>
+<rect x="56" y="305" width="48" height="28" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="80.0" y="323" font-size="10" fill="#222" text-anchor="middle" >u1</text>
+<rect x="104" y="305" width="48" height="28" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="128.0" y="323" font-size="10" fill="#222" text-anchor="middle" >u2</text>
+<rect x="152" y="305" width="48" height="28" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="176.0" y="323" font-size="10" fill="#222" text-anchor="middle" >u3</text>
+<rect x="200" y="305" width="48" height="28" rx="0" fill="#fbecec" stroke="#666" stroke-width="1"/>
+<text x="224.0" y="323" font-size="10" fill="#222" text-anchor="middle" >u4</text>
+<rect x="248" y="305" width="48" height="28" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="272.0" y="323" font-size="10" fill="#222" text-anchor="middle" >IE</text>
+<rect x="296" y="305" width="48" height="28" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="320.0" y="323" font-size="10" fill="#222" text-anchor="middle" >FR</text>
+<rect x="344" y="305" width="48" height="28" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="368.0" y="323" font-size="10" fill="#222" text-anchor="middle" >IE</text>
+<rect x="392" y="305" width="48" height="28" rx="0" fill="#eaf4ec" stroke="#666" stroke-width="1"/>
+<text x="416.0" y="323" font-size="10" fill="#222" text-anchor="middle" >IE</text>
+<rect x="440" y="305" width="48" height="28" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="464.0" y="323" font-size="10" fill="#222" text-anchor="middle" >3 Jan</text>
+<rect x="488" y="305" width="48" height="28" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="512.0" y="323" font-size="10" fill="#222" text-anchor="middle" >3 Jan</text>
+<rect x="536" y="305" width="48" height="28" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="560.0" y="323" font-size="10" fill="#222" text-anchor="middle" >4 Jan</text>
+<rect x="584" y="305" width="48" height="28" rx="0" fill="#e8eef8" stroke="#666" stroke-width="1"/>
+<text x="608.0" y="323" font-size="10" fill="#222" text-anchor="middle" >4 Jan</text>
+<rect x="632" y="305" width="48" height="28" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="656.0" y="323" font-size="10" fill="#222" text-anchor="middle" >20</text>
+<rect x="680" y="305" width="48" height="28" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="704.0" y="323" font-size="10" fill="#222" text-anchor="middle" >35</text>
+<rect x="728" y="305" width="48" height="28" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="752.0" y="323" font-size="10" fill="#222" text-anchor="middle" >12</text>
+<rect x="776" y="305" width="48" height="28" rx="0" fill="#fdf3e1" stroke="#666" stroke-width="1"/>
+<text x="800.0" y="323" font-size="10" fill="#222" text-anchor="middle" >50</text>
+<text x="56" y="375" font-size="11" fill="#666" text-anchor="start" >Good for analytics: read only the columns a query needs. Similar values sit together and compress well.</text>
+<path d="M250,337 L250,343 L438,343 L438,337" fill="none" stroke="#2e6b3a" stroke-width="1.5"/>
+<text x="344.0" y="357" font-size="10" fill="#2e6b3a" text-anchor="middle" font-weight="bold" stroke="white" stroke-width="4" paint-order="stroke">IE, FR, IE, IE: easy to compress</text>
+<text x="440" y="408" font-size="12" fill="#222" text-anchor="middle" >Both formats state the schema once, rather than repeating field names in every record.</text>
+</svg>

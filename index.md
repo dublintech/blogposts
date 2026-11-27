@@ -35,3 +35,7 @@ read_time: false
 - [Part 2 - Replication, Sharding and Transactions](posts/book-reviews/ddia-2e-part-2-replication-sharding-transactions/) — Replication logs and lag, multi-leader and CRDTs, quorums, sharding and secondary indexes, snapshot isolation and write skew.
 
 - [Part 3 - Problems with Distributed Systems, and How Consensus Helps](posts/book-reviews/ddia-2e-part-3-distributed-trouble-and-consensus/) — Unbounded network delays, unreliable clocks, zombies and fencing tokens, linearizability vs serializability, and consensus.
+
+- [Part 4 - Handling Batches and Streams](posts/book-reviews/ddia-2e-part-4-batch-and-stream-processing/) — MapReduce to Spark and Flink, object storage, Avro vs Parquet, the shuffle, Kafka partitions and offsets, and stream joins.
+
+- [Part 5 - Unbundling the Database, and Doing the Right Thing](posts/book-reviews/ddia-2e-part-5-unbundling-and-doing-the-right-thing/) — The dual-writes problem, ordered logs as the source of truth, integrity vs timeliness, engineering ethics, and my verdict.

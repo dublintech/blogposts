@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" font-family="Helvetica, Arial, sans-serif">
+<rect width="880" height="330" fill="white"/>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#666"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8B2222"/></marker>
+<marker id="ak" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+<marker id="an" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2e6b3a"/></marker>
+</defs>
+<text x="140" y="30" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">Stream–stream join</text>
+<rect x="45" y="55" width="110" height="120" rx="4" fill="#fbecec" stroke="#8B2222" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="100" y="190" font-size="10" fill="#8B2222" text-anchor="middle" font-weight="bold">time window</text>
+<line x1="20" y1="80" x2="270" y2="80" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<text x="265" y="70" font-size="10" fill="#666" text-anchor="end" font-style="italic" stroke="white" stroke-width="4" paint-order="stroke">searches</text>
+<line x1="20" y1="150" x2="270" y2="150" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<text x="265" y="140" font-size="10" fill="#666" text-anchor="end" font-style="italic" stroke="white" stroke-width="4" paint-order="stroke">clicks</text>
+<circle cx="60" cy="80" r="7" fill="#e8eef8" stroke="#666"/>
+<circle cx="115" cy="80" r="7" fill="#e8eef8" stroke="#666"/>
+<circle cx="215" cy="80" r="7" fill="#e8eef8" stroke="#666"/>
+<circle cx="80" cy="150" r="7" fill="#fdf3e1" stroke="#666"/>
+<circle cx="140" cy="150" r="7" fill="#fdf3e1" stroke="#666"/>
+<circle cx="245" cy="150" r="7" fill="#fdf3e1" stroke="#666"/>
+<line x1="60" y1="87" x2="80" y2="143" stroke="#2e6b3a" stroke-width="2" stroke-dasharray="3 3"/>
+<line x1="115" y1="87" x2="140" y2="143" stroke="#2e6b3a" stroke-width="2" stroke-dasharray="3 3"/>
+<rect x="60" y="215" width="160" height="40" rx="6" fill="#eaf4ec" stroke="#2e6b3a" stroke-width="1.5"/>
+<text x="140.0" y="231.2" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">matched pairs</text>
+<text x="140.0" y="247.2" font-size="11" fill="#666" text-anchor="middle" >search → click</text>
+<line x1="140" y1="177" x2="140" y2="213" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<text x="140" y="285" font-size="11" fill="#222" text-anchor="middle" >Match related events from two</text>
+<text x="140" y="301" font-size="11" fill="#222" text-anchor="middle" >streams that occur close in time.</text>
+<line x1="293" y1="45" x2="293" y2="310" stroke="#ddd" stroke-width="1.5"/>
+<text x="440" y="30" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">Stream–table join</text>
+<rect x="310" y="55" width="125" height="38" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="372.5" y="70.35" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">activity events</text>
+<text x="372.5" y="85.35" font-size="10" fill="#666" text-anchor="middle" >stream</text>
+<rect x="450" y="55" width="125" height="38" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="512.5" y="70.35" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">profile changes</text>
+<text x="512.5" y="85.35" font-size="10" fill="#666" text-anchor="middle" >changelog (CDC)</text>
+<rect x="450" y="120" width="125" height="38" rx="6" fill="#e8eef8" stroke="#666" stroke-width="1.5"/>
+<text x="512.5" y="135.35" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">user profiles</text>
+<text x="512.5" y="150.35" font-size="10" fill="#666" text-anchor="middle" >local table</text>
+<line x1="512" y1="93" x2="512" y2="118" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<rect x="380" y="180" width="120" height="34" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="440.0" y="200.85" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">join on user_id</text>
+<line x1="372" y1="93" x2="420" y2="178" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<line x1="500" y1="158" x2="465" y2="178" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<rect x="380" y="232" width="120" height="34" rx="6" fill="#eaf4ec" stroke="#2e6b3a" stroke-width="1.5"/>
+<text x="440.0" y="252.85" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">enriched events</text>
+<line x1="440" y1="214" x2="440" y2="230" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<text x="440" y="285" font-size="11" fill="#222" text-anchor="middle" >The table is kept up to date from a</text>
+<text x="440" y="301" font-size="11" fill="#222" text-anchor="middle" >changelog and used to enrich events.</text>
+<line x1="586" y1="45" x2="586" y2="310" stroke="#ddd" stroke-width="1.5"/>
+<text x="734" y="30" font-size="14" fill="#222" text-anchor="middle" font-weight="bold">Table–table join</text>
+<rect x="599" y="55" width="130" height="38" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="664.0" y="70.35" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">tweets</text>
+<text x="664.0" y="85.35" font-size="10" fill="#666" text-anchor="middle" >changelog</text>
+<rect x="739" y="55" width="130" height="38" rx="6" fill="#f4f4f4" stroke="#666" stroke-width="1.5"/>
+<text x="804.0" y="70.35" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">follows</text>
+<text x="804.0" y="85.35" font-size="10" fill="#666" text-anchor="middle" >changelog</text>
+<rect x="599" y="120" width="130" height="34" rx="6" fill="#e8eef8" stroke="#666" stroke-width="1.5"/>
+<text x="664.0" y="140.85" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">tweets table</text>
+<rect x="739" y="120" width="130" height="34" rx="6" fill="#e8eef8" stroke="#666" stroke-width="1.5"/>
+<text x="804.0" y="140.85" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">follows table</text>
+<line x1="664" y1="93" x2="664" y2="118" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<line x1="804" y1="93" x2="804" y2="118" stroke="#666" stroke-width="1.6" marker-end="url(#ag)"/>
+<rect x="674" y="180" width="120" height="34" rx="6" fill="#fbecec" stroke="#8B2222" stroke-width="1.5"/>
+<text x="734.0" y="200.85" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">join</text>
+<line x1="664" y1="154" x2="714" y2="178" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<line x1="804" y1="154" x2="754" y2="178" stroke="#222" stroke-width="1.6" marker-end="url(#ak)"/>
+<rect x="649" y="232" width="170" height="34" rx="6" fill="#eaf4ec" stroke="#2e6b3a" stroke-width="1.5"/>
+<text x="734.0" y="252.85" font-size="11" fill="#222" text-anchor="middle" font-weight="bold">materialised view: timelines</text>
+<line x1="734" y1="214" x2="734" y2="230" stroke="#2e6b3a" stroke-width="1.6" marker-end="url(#an)"/>
+<text x="734" y="285" font-size="11" fill="#222" text-anchor="middle" >Both inputs are changelogs. The output</text>
+<text x="734" y="301" font-size="11" fill="#222" text-anchor="middle" >is a continuously updated joined view.</text>
+</svg>
