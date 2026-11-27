@@ -33,13 +33,13 @@ A related idea is **tail latency amplification**. A single user-facing request o
 
 ## Faults aren't failures
 
-This is a small distinction in wording that helps a lot. A **fault** is when one part of the system stops working: a disk dies, a node crashes, a network link drops. A **failure** is when the system as a whole stops providing its service to users.
+Kleppman makes clear a distinction in wording that helps a lot. A **fault** is when one part of the system stops working: a disk dies, a node crashes, a network link drops. A **failure** is when the system as a whole stops providing its service to users.
 
-The point is that you can't prevent faults; at any real scale they happen all the time. What you can do is design so that faults don't become failures. When someone says "we need to make this more reliable," it's worth asking which of the two they mean.
+The point is that you can't prevent faults; at any real scale they happen. What you can do is design so that faults don't become failures. When someone says "we need to make this more reliable," it's worth asking which of the two they mean.
 
 ## A good abstraction is worth a lot
 
-A good abstraction is one of the best tools we have for managing complexity. A well-designed abstraction hides a large amount of messy detail behind a clean interface. SQL is the obvious example: you say what data you want, and the query planner works out how to get it. 
+A good abstraction is one of the best tools we have for managing complexity. It hides a large amount of complex detail behind a clean interface. SQL is an obvious example: you say what data you want, and the query planner works out how to get it. 
 
 ## Schema on read vs schema on write
 
@@ -49,24 +49,21 @@ Relational databases are **schema on write**. The database checks every write ag
 
 Document databases are often called "schemaless," but that's misleading. There is still a schema; it just lives in the code that reads the data. That's **schema on read**. The application assumes the data has a certain shape and has to deal with the cases where it doesn't.
 
-This is a bit like static versus dynamic typing in programming languages. Neither is simply better. Schema on read is useful when your data is truly varied, or when its structure is decided by something you don't control. Schema on write gives you guarantees and, as a side effect, documentation.
+It is a bit like static versus dynamic typing in programming languages. Neither is simply better. Schema on read is useful when your data is truly varied, or when its structure is decided by something you don't control. Schema on write gives you guarantees and, as a side effect, documentation.
 
 ## Locality cuts both ways
 
 Document databases get good data locality. A document and everything nested inside it is stored together as one contiguous encoded blob (JSON or a binary variant such as BSON). If you usually need the whole thing at once, say a user profile with all its positions and education history, you get it in a single read with no joins.
 
-The flip side is that the database usually loads the whole document even when you need only a small part of it. Writes work the same way: changing one field typically means rewriting the entire document. If your documents are large and you mostly touch small pieces of them, locality starts to work against you. A relational database gives you finer-grained control over what you read and write.
-
-So the advice is to keep documents fairly small and avoid writes that keep growing them.
+The flip side is that typically a document database usually loads the whole document even when you need only a small part of it. Writes work the same way: changing one field typically means rewriting the entire document. If your documents are large and you mostly touch small pieces of them, locality starts to work against you. A relational database gives you finer-grained control over what you read and write.
 
 ## Let the relationships decide
 
-The kind of relationships in your data is an important factor in choosing a data model.
+The kind of relationships in your data is an important factor when choosing a data model for persistence.
 
-- If your data is mostly **one-to-many**, a tree where each thing contains other things, the document model fits well.
-- If lots of records refer to shared entities (**many-to-one**), you want joins, which is the relational model's strength and historically a weakness of document databases.
-- Relational databases handle **many-to-many** fine with join tables. But when everything connects to everything, and your queries follow paths of unknown length, a graph database lets you write the query the way you think about it.
-
+- If your data is mostly **one-to-many**, a tree where each thing contains or owns other things, the document model fits well.
+- If lots of records refer to shared entities (**many-to-one**), you want joins, the relational model shows strength.
+- Relational databases handle **many-to-many** fine with join tables. But when everything connects to everything, and your queries follow paths of unknown length (and different types), a graph database lets you write the query the way you think about it.
 
 The book's graph example made this click for me. Think about representing where people were born and where they live. Places nest inside other places, but differently in every country. In the US you might have city, then state, then country. In France it's city, then département, then région, then country. In the UK it's different again.
 
@@ -91,15 +88,15 @@ The `*0..` means "follow `WITHIN` edges as many times as needed." It doesn't mat
 
 I was glad to see DataFrames covered in the second edition, since anyone working near data science uses them heavily. My first instinct was to think of them as a table you manipulate in code, which is true but doesn't explain why you'd choose one over SQL.
 
-Where they really help is reshaping data. SQL needs to know its output columns when you write the query. A DataFrame doesn't, so operations where the data determines the columns become easy: a dynamic pivot, where the values in a column become new columns, or a transpose, where rows and columns swap.
+Where DataFrames really help is reshaping data. SQL needs to know its output columns when you write the query. A DataFrame doesn't, so operations where the data determines the columns become easy: a dynamic pivot, where the values in a column become new columns, or a transpose, where rows and columns swap.
 
 This makes DataFrames a natural bridge between relational data and machine learning. ML libraries want numeric matrices, not tables of records. Converting a `country` column into one-hot encoded `country_UK`, `country_US` and `country_FR` columns is a single call on a DataFrame and awkward in SQL.
 
 ## Two ways to store data
 
-The storage chapter compares two families of storage engines. I think every architect / developer should understand both, even if you never build one.
+The storage chapter compares two families of storage engines.
 
-**Log-structured storage**, such as SSTables and the LSM-trees built from those files, never overwrites data on disk. New writes go into a sorted in-memory buffer called the memtable. When it fills up, it's flushed to disk as an immutable sorted file, an SSTable. In the background, compaction merges these files and discards outdated values. Every write is a fast sequential append, so writes are cheap. The cost shows up on reads: a key might be in any of several files, so a lookup may need to check the memtable and a few SSTables. Bloom filters and compaction keep that under control. It is called log structured because each SSTable is immutable and subsequent SSTables are just appended like a log.
+**Log-structured storage**, such as SSTables and the LSM-trees built from those files, never overwrites data on disk. New writes go into a sorted in-memory buffer called the memtable. When it fills up, it's flushed to disk as an immutable sorted file, aka an SSTable. In the background, compaction merges these files and discards outdated values. Every write is a fast sequential append, so writes are cheap. The cost shows up on reads: a key might be in any of several files, so a lookup may need to check the memtable and a few SSTables. Bloom filters and compaction keep that under control. It is called log structured because each SSTable is immutable and subsequent SSTables are just appended like a log.
 
 **Update-in-place storage**, the B-tree, takes the opposite approach. Data lives in one sorted tree of fixed-size pages, and a write changes the right page directly on disk. A read is one predictable walk from the root to a leaf, usually three or four levels even for very large datasets, so reads are fast and consistent. The cost shows up on writes: each one is a random page rewrite, plus a write-ahead log entry for crash safety, and sometimes a page split.
 
@@ -111,7 +108,7 @@ Put simply, LSM-trees make writing cheap and pay later when reading and compacti
 
 ## Data outlives code
 
-The encoding chapter contains what I think is the most practically useful idea in this part of the book: your data lives much longer than the code that wrote it.
+The encoding chapter contains what I think is one the most practically useful idea in this part of the book: your data lives much longer than the code that wrote it.
 
 During a rolling deployment, or while mobile clients are slowly upgrading, old and new versions of your code run side by side and read each other's data. So you need compatibility in both directions:
 

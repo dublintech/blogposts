@@ -24,7 +24,7 @@ The difference between the two comes down to one word. A batch job's input is **
 
 Batch processing was shaped by **MapReduce**, published by Google in 2004 and popularised by Hadoop. It was a big step forward: it let you process enormous datasets across clusters of cheap commodity machines.
 
-It has since been superseded by **dataflow engines** such as Spark and Flink, for two main reasons.
+It has since been superseded by **dataflow engines** such as Spark, for two main reasons.
 
 First, MapReduce writes too much to disk. A real workflow is usually a chain of MapReduce jobs, and each job writes its full output to the distributed filesystem, replicated across several machines, before the next job can start reading it. Dataflow engines treat the whole workflow as one job and keep intermediate data in memory or on local disk.
 
@@ -54,7 +54,7 @@ The same thing is happening from the other direction. Spark has added data wareh
 
 ### Distributed filesystems: shared nothing
 
-Traditional shared storage, such as NAS and SAN, is a **shared-disk** architecture. It needs specialised hardware and network infrastructure. A distributed filesystem like HDFS is **shared-nothing**: it needs no special hardware, just ordinary computers connected by a normal datacentre network. Each machine stores some blocks of each file, and the blocks are replicated across machines in case one dies.
+Traditional shared storage, such as NAS and SAN, is a **shared-disk** architecture. It needs specialised hardware and network infrastructure. A distributed filesystem like HDFS is **shared-nothing**: it needs no special hardware, just ordinary computers connected by a normal datacentre network. Files are split into large blocks, which are spread across the machines in the cluster and replicated in case one dies.
 
 ### Object storage is not a filesystem
 
@@ -82,7 +82,7 @@ In MapReduce, the shuffle is also a distributed sort. Each mapper partitions its
 
 ### DataFrames, but distributed
 
-Spark and Flink both offer DataFrame-style APIs, and it's tempting to think of them as Pandas on a cluster. They're not quite the same:
+Spark's DataFrames (and, to a degree, Flink's Table API) both offer DataFrame-style APIs, and it's tempting to think of them as Pandas on a cluster. They're not quite the same:
 
 - A local DataFrame, as in Pandas, has an **index**, so you can look up rows by label. Distributed DataFrames don't have an index like that; they're spread across many machines.
 - Pandas operations **run immediately**. Distributed DataFrames are **lazy**: each operation adds a step to a plan, and nothing runs until you ask for a result, such as writing output or collecting rows. That gives the engine the chance to optimise the whole plan before it executes anything.
