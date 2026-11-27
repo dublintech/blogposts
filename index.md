@@ -12,7 +12,7 @@ read_time: false
   <img src="{{ "/images/me.jpg" | relative_url }}" alt="Alex Staveley" style="border-radius:50%; width:90px; height:90px; object-fit:cover; flex-shrink:0;">
   <div>
     <strong>Alex Staveley</strong><br>
-    Software architect with 25+ years of experience. Writing about AI Coding Tools, architectural governance, and engineering discipline in modern software delivery.
+    Software architect with extensive years of experience. Writing about AI Coding Tools, architectural governance and engineering discipline in modern software delivery.
   </div>
 </div>
 
